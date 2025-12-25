@@ -5,7 +5,6 @@
 
 	const total = data.cards.length;
 	const tradeable = data.cards.filter((card) => card.forTrade).length;
-	const latest = data.cards[0];
 
 	const totals = {
 		collection: 595,
@@ -29,7 +28,7 @@
 
 <section class="home-card">
 	<div>
-		<h1>Willkommen zurück!</h1>
+		<h1>Willkommen zurueck!</h1>
 		<p class="home-sub">Deine TOPPS Premier League Sammelkarten Kollektion</p>
 	</div>
 
@@ -103,28 +102,18 @@
 	<div class="home-split">
 		<div>
 			<h2>Deine besten Karten</h2>
-			{#if bestCards.length === 0}
-				<p class="muted">Noch keine Karten in der Sammlung.</p>
-			{:else}
-				<div class="collection-grid">
-					{#each bestCards as card}
-						<article class="collect-card">
-							<div class="collect-image">
-								<span class="collect-tag">{card.rarity || 'RARE'}</span>
-							</div>
-							<div class="collect-body">
-								<p>{card.player || 'Unbekannter Spieler'}</p>
-								<span>{card.team || 'Unbekanntes Team'}</span>
-							</div>
-						</article>
-					{/each}
-				</div>
-			{/if}
+			<CardList
+				cards={bestCards}
+				showHeader={false}
+				showActions={false}
+				emptyText="Noch keine Karten in der Sammlung."
+			/>
 		</div>
 	</div>
 </section>
 
 <section class="cta-panel">
-	<p>Ergänze neue Funde in deiner Sammlung.</p>
+	<h3>Karte hinzufuegen</h3>
+	<p>Ergaenze neue Funde in deiner Sammlung.</p>
 	<a class="btn add" href="/cards/new">Neue Karte</a>
 </section>

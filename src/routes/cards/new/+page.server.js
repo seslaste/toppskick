@@ -6,6 +6,7 @@ function buildPayload(data) {
 		payload: {
 			player: String(data.get('player') || '').trim(),
 			team: String(data.get('team') || '').trim(),
+			position: String(data.get('position') || '').trim(),
 			rarity: String(data.get('rarity') || '').trim(),
 			forTrade: data.get('forTrade') === 'on',
 			notes: String(data.get('notes') || '').trim(),

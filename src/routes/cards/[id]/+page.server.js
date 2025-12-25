@@ -7,6 +7,7 @@ function mapCard(doc) {
 		id: doc._id.toString(),
 		player: doc.player ?? '',
 		team: doc.team ?? '',
+		position: doc.position ?? '',
 		rarity: doc.rarity ?? '',
 		forTrade: doc.forTrade ?? false,
 		notes: doc.notes ?? ''
@@ -43,6 +44,7 @@ export const actions = {
 				$set: {
 					player: String(data.get('player') || '').trim(),
 					team: String(data.get('team') || '').trim(),
+					position: String(data.get('position') || '').trim(),
 					rarity: String(data.get('rarity') || '').trim(),
 					forTrade: data.get('forTrade') === 'on',
 					notes: String(data.get('notes') || '').trim(),

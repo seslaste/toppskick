@@ -4,6 +4,7 @@
 	let form = $state({
 		player: card?.player ?? '',
 		team: card?.team ?? '',
+		position: card?.position ?? '',
 		rarity: card?.rarity ?? '',
 		forTrade: card?.forTrade ?? false,
 		notes: card?.notes ?? ''
@@ -40,6 +41,16 @@
 				<option value="Tottenham Hotspur">Tottenham Hotspur</option>
 				<option value="West Ham United">West Ham United</option>
 				<option value="Wolverhampton Wanderers">Wolverhampton Wanderers</option>
+			</select>
+		</label>
+		<label>
+			Position
+			<select name="position" bind:value={form.position}>
+				<option value="">Bitte waehlen</option>
+				<option value="Torwart">Torwart</option>
+				<option value="Verteidiger">Verteidiger</option>
+				<option value="Mittelfeldspieler">Mittelfeldspieler</option>
+				<option value="Stuermer">Stuermer</option>
 			</select>
 		</label>
 		<label>

@@ -1,6 +1,7 @@
 <script>
 	import favicon from '$lib/assets/favicon.svg';
 	import '../app.css';
+	import { page } from '$app/stores';
 
 	let { children } = $props();
 </script>
@@ -25,9 +26,9 @@
 			</div>
 		</div>
 		<nav class="nav-links">
-			<a class="active" href="/">Home</a>
-			<a href="/">Sammlung</a>
-			<a href="/">Statistiken</a>
+			<a class:active={$page.url.pathname === '/'} href="/">Home</a>
+			<a class:active={$page.url.pathname.startsWith('/sammlung')} href="/sammlung">Sammlung</a>
+			<a class:active={$page.url.pathname.startsWith('/statistiken')} href="/statistiken">Statistiken</a>
 		</nav>
 	</header>
 	<main class="page">
