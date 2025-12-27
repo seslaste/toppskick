@@ -8,6 +8,7 @@ function mapCard(doc) {
 		player: doc.player ?? '',
 		team: doc.team ?? '',
 		position: doc.position ?? '',
+		nationality: doc.nationality ?? '',
 		rarity: doc.rarity ?? '',
 		forTrade: doc.forTrade ?? false,
 		notes: doc.notes ?? '',

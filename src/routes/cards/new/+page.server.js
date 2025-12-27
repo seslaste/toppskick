@@ -5,6 +5,7 @@ function buildPayload(data) {
 	const player = String(data.get('player') || '').trim();
 	const team = String(data.get('team') || '').trim();
 	const position = String(data.get('position') || '').trim();
+	const nationality = String(data.get('nationality') || '').trim();
 	const rarity = String(data.get('rarity') || '').trim();
 
 	if (!player) {
@@ -16,6 +17,9 @@ function buildPayload(data) {
 	if (!position) {
 		return { error: 'Position ist erforderlich.' };
 	}
+	if (!nationality) {
+		return { error: 'Nationalitaet ist erforderlich.' };
+	}
 	if (!rarity) {
 		return { error: 'Rarity ist erforderlich.' };
 	}
@@ -25,6 +29,7 @@ function buildPayload(data) {
 			player,
 			team,
 			position,
+			nationality,
 			rarity,
 			forTrade: data.get('forTrade') === 'on',
 			notes: String(data.get('notes') || '').trim(),
