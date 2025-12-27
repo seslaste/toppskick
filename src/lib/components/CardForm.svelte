@@ -1,5 +1,6 @@
 <script>
 	let { action, submitLabel = 'Speichern', card = null, deleteAction = null } = $props();
+	let showDeleteConfirm = $state(false);
 
 	const initial = {
 		player: card?.player ?? '',
@@ -18,17 +19,25 @@
 			window.location.href = '/sammlung';
 		}
 	}
+
+	function openDeleteConfirm() {
+		showDeleteConfirm = true;
+	}
+
+	function closeDeleteConfirm() {
+		showDeleteConfirm = false;
+	}
 </script>
 
 <form class="card-form" method="post" action={action}>
 	<div class="form-grid">
 		<label>
 			Spieler
-			<input name="player" bind:value={form.player} placeholder="z. B. Erling Haaland" />
+			<input name="player" required bind:value={form.player} placeholder="z. B. Erling Haaland" />
 		</label>
 		<label>
 			Team
-			<select name="team" bind:value={form.team}>
+			<select name="team" required bind:value={form.team}>
 				<option value="">Bitte wählen</option>
 				<option value="Arsenal">Arsenal</option>
 				<option value="Aston Villa">Aston Villa</option>
@@ -54,7 +63,7 @@
 		</label>
 		<label>
 			Position
-			<select name="position" bind:value={form.position}>
+			<select name="position" required bind:value={form.position}>
 				<option value="">Bitte waehlen</option>
 				<option value="Torwart">Torwart</option>
 				<option value="Verteidiger">Verteidiger</option>
@@ -64,7 +73,7 @@
 		</label>
 		<label>
 			Rarity
-			<select name="rarity" bind:value={form.rarity}>
+			<select name="rarity" required bind:value={form.rarity}>
 				<option value="">Bitte waehlen</option>
 				<option value="Common">Common</option>
 				<option value="Rare">Rare</option>
@@ -86,9 +95,24 @@
 			<button class="btn ghost" type="button" on:click={handleCancel}>Cancel</button>
 		</div>
 		{#if deleteAction}
-			<button class="btn danger" type="submit" formaction={deleteAction} formmethod="post">
+			<button class="btn danger" type="button" on:click={openDeleteConfirm}>
 				Karte loeschen
 			</button>
 		{/if}
 	</div>
 </form>
+
+{#if deleteAction && showDeleteConfirm}
+	<div class="modal-backdrop" role="dialog" aria-modal="true">
+		<div class="modal-card">
+			<h3>Karte loeschen?</h3>
+			<p>Diese Aktion kann nicht rueckgaengig gemacht werden.</p>
+			<div class="modal-actions">
+				<button class="btn ghost" type="button" on:click={closeDeleteConfirm}>Abbrechen</button>
+				<form method="post" action={deleteAction}>
+					<button class="btn danger" type="submit">Loeschen bestaetigen</button>
+				</form>
+			</div>
+		</div>
+	</div>
+{/if}

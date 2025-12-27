@@ -544,6 +544,43 @@ select {
 	flex-wrap: wrap;
 }
 
+.modal-backdrop {
+	position: fixed;
+	inset: 0;
+	background: rgba(10, 6, 22, 0.65);
+	display: grid;
+	place-items: center;
+	padding: 20px;
+	z-index: 50;
+}
+
+.modal-card {
+	width: min(420px, 90vw);
+	background: rgba(37, 20, 70, 0.98);
+	border-radius: 18px;
+	border: 1px solid rgba(120, 90, 200, 0.4);
+	padding: 22px;
+	box-shadow: var(--shadow);
+	display: grid;
+	gap: 12px;
+}
+
+.modal-card h3 {
+	margin: 0;
+}
+
+.modal-card p {
+	margin: 0;
+	color: var(--muted);
+}
+
+.modal-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
 @keyframes rise {
 	from {
 		opacity: 0;
