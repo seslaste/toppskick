@@ -1,10 +1,5 @@
 <script>
-	let {
-		cards,
-		showHeader = true,
-		showActions = true,
-		emptyText = 'Noch keine Karten. Starte mit deinem ersten Fund.'
-	} = $props();
+	let { cards, showHeader = true, emptyText = 'Noch keine Karten. Starte mit deinem ersten Fund.' } = $props();
 
 	const rarityClassMap = {
 		'Common': 'tag-common',
@@ -57,15 +52,9 @@
 					{#if card.notes}
 						<p class="notes">{card.notes}</p>
 					{/if}
-					{#if showActions}
-						<div class="card-actions">
-							<a class="btn ghost" href={`/cards/${card.id}`}>Bearbeiten</a>
-							<form method="post" action="?/delete">
-								<input type="hidden" name="id" value={card.id} />
-								<button class="btn danger" type="submit">Loeschen</button>
-							</form>
-						</div>
-					{/if}
+					<div class="card-actions">
+						<a class="btn ghost" href={`/cards/${card.id}`}>Bearbeiten</a>
+					</div>
 				</article>
 			{/each}
 		</div>

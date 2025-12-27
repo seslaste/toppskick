@@ -534,6 +534,14 @@ select {
 	display: flex;
 	gap: 12px;
 	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.action-group {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
 }
 
 @keyframes rise {

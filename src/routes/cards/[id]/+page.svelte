@@ -11,4 +11,9 @@
 	</div>
 </section>
 
-<CardForm card={data.card} submitLabel="Aenderungen speichern" />
+<CardForm
+	card={data.card}
+	submitLabel="Aenderungen speichern"
+	action="?/save"
+	deleteAction="?/delete"
+/>

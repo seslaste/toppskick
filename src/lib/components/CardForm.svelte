@@ -1,14 +1,23 @@
 <script>
-	let { action, submitLabel = 'Speichern', card = null } = $props();
+	let { action, submitLabel = 'Speichern', card = null, deleteAction = null } = $props();
 
-	let form = $state({
+	const initial = {
 		player: card?.player ?? '',
 		team: card?.team ?? '',
 		position: card?.position ?? '',
 		rarity: card?.rarity ?? '',
 		forTrade: card?.forTrade ?? false,
 		notes: card?.notes ?? ''
-	});
+	};
+
+	let form = $state({ ...initial });
+
+	function handleCancel() {
+		form = { ...initial };
+		if (typeof window !== 'undefined') {
+			window.location.href = '/sammlung';
+		}
+	}
 </script>
 
 <form class="card-form" method="post" action={action}>
@@ -72,7 +81,14 @@
 	</label>
 
 	<div class="form-actions">
-		<button class="btn primary" type="submit">{submitLabel}</button>
-		<a class="btn ghost" href="/">Zur Uebersicht</a>
+		<div class="action-group">
+			<button class="btn primary" type="submit">{submitLabel}</button>
+			<button class="btn ghost" type="button" on:click={handleCancel}>Cancel</button>
+		</div>
+		{#if deleteAction}
+			<button class="btn danger" type="submit" formaction={deleteAction} formmethod="post">
+				Karte loeschen
+			</button>
+		{/if}
 	</div>
 </form>

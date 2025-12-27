@@ -105,7 +105,6 @@
 			<CardList
 				cards={bestCards}
 				showHeader={false}
-				showActions={false}
 				emptyText="Noch keine Karten in der Sammlung."
 			/>
 		</div>

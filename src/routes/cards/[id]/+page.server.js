@@ -1,4 +1,4 @@
-import { error, redirect } from '@sveltejs/kit';
+import { error, fail, redirect } from '@sveltejs/kit';
 import { ObjectId } from 'mongodb';
 import { getCardsCollection } from '$lib/server/mongo';
 
@@ -30,7 +30,7 @@ export async function load({ params }) {
 }
 
 export const actions = {
-	default: async ({ request, params }) => {
+	save: async ({ request, params }) => {
 		if (!ObjectId.isValid(params.id)) {
 			return fail(400, { error: 'Invalid card id.' });
 		}
@@ -53,6 +53,15 @@ export const actions = {
 			}
 		);
 
-		throw redirect(303, '/');
+		throw redirect(303, '/sammlung');
+	},
+	delete: async ({ params }) => {
+		if (!ObjectId.isValid(params.id)) {
+			return fail(400, { error: 'Invalid card id.' });
+		}
+
+		const collection = await getCardsCollection();
+		await collection.deleteOne({ _id: new ObjectId(params.id) });
+		throw redirect(303, '/sammlung');
 	}
 };
