@@ -4,4 +4,4 @@
 	let { data } = $props();
 </script>
 
-<CardList cards={data.cards} />
+<CardList cards={data.cards} showActions={false} />

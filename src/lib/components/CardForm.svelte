@@ -1,4 +1,4 @@
-<script>
+﻿<script>
 	let { action, submitLabel = 'Speichern', card = null, deleteAction = null } = $props();
 	let showDeleteConfirm = $state(false);
 
@@ -65,17 +65,17 @@
 		<label>
 			Position
 			<select name="position" required bind:value={form.position}>
-				<option value="">Bitte waehlen</option>
+				<option value="">Bitte wählen</option>
 				<option value="Torwart">Torwart</option>
 				<option value="Verteidiger">Verteidiger</option>
 				<option value="Mittelfeldspieler">Mittelfeldspieler</option>
-				<option value="Stuermer">Stuermer</option>
+				<option value="Stürmer">Stürmer</option>
 			</select>
 		</label>
 		<label>
-			Nationalitaet
+			Nationalität
 			<select name="nationality" required bind:value={form.nationality}>
-				<option value="">Bitte waehlen</option>
+				<option value="">Bitte wählen</option>
 				<option value="Afghanistan">Afghanistan</option>
 				<option value="Ägypten">Ägypten</option>
 				<option value="Ålandinseln">Ålandinseln</option>
@@ -325,7 +325,7 @@
 		<label>
 			Rarity
 			<select name="rarity" required bind:value={form.rarity}>
-				<option value="">Bitte waehlen</option>
+				<option value="">Bitte wählen</option>
 				<option value="Common">Common</option>
 				<option value="Rare">Rare</option>
 				<option value="Very Rare">Very Rare</option>
@@ -343,11 +343,11 @@
 	<div class="form-actions">
 		<div class="action-group">
 			<button class="btn primary" type="submit">{submitLabel}</button>
-			<button class="btn ghost" type="button" on:click={handleCancel}>Cancel</button>
+			<button class="btn ghost" type="button" on:click={handleCancel}>Abbrechen</button>
 		</div>
 		{#if deleteAction}
 			<button class="btn danger" type="button" on:click={openDeleteConfirm}>
-				Karte loeschen
+				Karte löschen
 			</button>
 		{/if}
 	</div>
@@ -356,12 +356,12 @@
 {#if deleteAction && showDeleteConfirm}
 	<div class="modal-backdrop" role="dialog" aria-modal="true">
 		<div class="modal-card">
-			<h3>Karte loeschen?</h3>
-			<p>Diese Aktion kann nicht rueckgaengig gemacht werden.</p>
+			<h3>Karte löschen?</h3>
+			<p>Diese Aktion kann nicht rückgängig gemacht werden.</p>
 			<div class="modal-actions">
 				<button class="btn ghost" type="button" on:click={closeDeleteConfirm}>Abbrechen</button>
 				<form method="post" action={deleteAction}>
-					<button class="btn danger" type="submit">Loeschen bestaetigen</button>
+					<button class="btn danger" type="submit">Löschen bestätigen</button>
 				</form>
 			</div>
 		</div>
