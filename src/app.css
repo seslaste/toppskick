@@ -230,14 +230,16 @@ a {
 
 .home-split {
 	display: grid;
-	grid-template-columns: 1fr 220px;
+	grid-template-columns: 1fr;
 	gap: 18px;
 	margin: 20px 0 16px;
 	align-items: stretch;
 }
 
 .home-split h2 {
-	margin: 0;
+
+	margin-top: 0px;
+
 }
 
 .cta-panel {
@@ -262,7 +264,7 @@ a {
 	background: rgba(37, 20, 70, 0.85);
 	border-radius: 18px;
 	border: 1px solid rgba(120, 90, 200, 0.3);
-	padding: 22px;
+	padding: 12px 28px 28px;
 	display: grid;
 	gap: 16px;
 	margin-bottom: 24px;
@@ -270,8 +272,25 @@ a {
 
 .collection-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-	gap: 16px;
+	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+	gap: 22px;
+	margin-top: 12px;
+}
+
+.collection-block .card-grid {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 1100px) {
+	.collection-block .card-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 720px) {
+	.collection-block .card-grid {
+		grid-template-columns: 1fr;
+	}
 }
 
 .collect-card {

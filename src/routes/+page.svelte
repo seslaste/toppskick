@@ -15,20 +15,55 @@
 		oneOfOne: 15
 	};
 
-	const collected = {
-		common: Math.min(total, 3),
-		rare: Math.min(Math.max(total - 3, 0), 4),
-		veryRare: Math.min(Math.max(total - 7, 0), 1),
-		ultraRare: Math.min(Math.max(total - 8, 0), 1),
-		oneOfOne: 0
-	};
+	const collected = data.cards.reduce(
+		(acc, card) => {
+			switch (card.rarity) {
+				case 'Common':
+					acc.common += 1;
+					break;
+				case 'Rare':
+					acc.rare += 1;
+					break;
+				case 'Very Rare':
+					acc.veryRare += 1;
+					break;
+				case 'Ultra Rare':
+					acc.ultraRare += 1;
+					break;
+				case 'One of One (1/1)':
+					acc.oneOfOne += 1;
+					break;
+				default:
+					break;
+			}
+			return acc;
+		},
+		{ common: 0, rare: 0, veryRare: 0, ultraRare: 0, oneOfOne: 0 }
+	);
+
+	const duplicateCount = data.cards.reduce((acc, card) => {
+		const key = [
+			card.player || '',
+			card.team || '',
+			card.position || '',
+			card.nationality || '',
+			card.rarity || ''
+		].join('|');
+		acc[key] = (acc[key] || 0) + 1;
+		return acc;
+	}, {});
+
+	const duplicates = Object.values(duplicateCount).reduce(
+		(totalDupes, count) => totalDupes + Math.max(0, count - 1),
+		0
+	);
 
 	const bestCards = data.cards.slice(0, 4);
 </script>
 
 <section class="home-card">
 	<div>
-		<h1>Willkommen zurueck!</h1>
+		<h1>Willkommen zurück!</h1>
 		<p class="home-sub">Deine TOPPS Premier League Sammelkarten Kollektion</p>
 	</div>
 
@@ -46,7 +81,7 @@
 		</div>
 		<div class="progress-row">
 			<span>Doppelte Karten</span>
-			<span>{Math.max(0, total - tradeable)}</span>
+			<span>{duplicates}</span>
 		</div>
 		<div class="rarity-list">
 			<div class="rarity-item">
@@ -98,6 +133,12 @@
 	</div>
 </section>
 
+<section class="cta-panel">
+	<h3>Karte hinzufügen</h3>
+	<p>Ergänze neue Funde in deiner Sammlung.</p>
+	<a class="btn add" href="/cards/new">Neue Karte</a>
+</section>
+
 <section class="collection-block">
 	<div class="home-split">
 		<div>
@@ -110,10 +151,4 @@
 			/>
 		</div>
 	</div>
-</section>
-
-<section class="cta-panel">
-	<h3>Karte hinzufuegen</h3>
-	<p>Ergaenze neue Funde in deiner Sammlung.</p>
-	<a class="btn add" href="/cards/new">Neue Karte</a>
 </section>
