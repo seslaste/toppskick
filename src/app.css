@@ -356,6 +356,10 @@ a {
 	animation: floatIn 0.4s ease both;
 }
 
+.card-click {
+	cursor: pointer;
+}
+
 .card-media {
 	border-radius: 14px;
 	overflow: hidden;
@@ -367,6 +371,51 @@ a {
 	width: 100%;
 	height: 180px;
 	object-fit: cover;
+}
+
+.detail-card {
+	width: min(680px, 94vw);
+}
+
+.detail-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+}
+
+.detail-media {
+	border-radius: 14px;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.06);
+}
+
+.detail-image {
+	display: block;
+	width: 100%;
+	height: 280px;
+	object-fit: cover;
+}
+
+.detail-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 12px;
+	background: rgba(16, 10, 30, 0.4);
+	padding: 12px;
+	border-radius: 12px;
+}
+
+.detail-label {
+	margin: 0 0 4px;
+	color: var(--muted);
+	font-size: 0.8rem;
+}
+
+.detail-notes {
+	background: rgba(16, 10, 30, 0.4);
+	padding: 12px;
+	border-radius: 12px;
 }
 
 .card-top {
