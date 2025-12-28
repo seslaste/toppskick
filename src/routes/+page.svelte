@@ -58,7 +58,17 @@
 		0
 	);
 
-	const bestCards = data.cards.slice(0, 4);
+	const rarityRank = {
+		'One of One (1/1)': 5,
+		'Ultra Rare': 4,
+		'Very Rare': 3,
+		'Rare': 2,
+		'Common': 1
+	};
+
+	const bestCards = [...data.cards]
+		.sort((a, b) => (rarityRank[b.rarity] || 0) - (rarityRank[a.rarity] || 0))
+		.slice(0, 4);
 </script>
 
 <section class="home-card">
@@ -74,10 +84,6 @@
 		</div>
 		<div class="progress-bar">
 			<span style={`width: ${Math.max(2, (total / totals.collection) * 100)}%`}></span>
-		</div>
-		<div class="progress-row">
-			<span>Gesammelte Karten insgesamt</span>
-			<span>{total}</span>
 		</div>
 		<div class="progress-row">
 			<span>Doppelte Karten</span>
