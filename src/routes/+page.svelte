@@ -134,7 +134,6 @@
 </section>
 
 <section class="cta-panel">
-	<h3>Karte hinzufügen</h3>
 	<p>Ergänze neue Funde in deiner Sammlung.</p>
 	<a class="btn add" href="/cards/new">Neue Karte</a>
 </section>
