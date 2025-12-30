@@ -30,7 +30,7 @@
 		<div class="section-head">
 			<div>
 				<h2>Sammlung</h2>
-				<p class="muted">Alle gesammelten Top Kicks Karten im schnellen Überblick.</p>
+				<p class="muted">Alle gesammelten TOPPS Premier League Karten im schnellen Überblick.</p>
 			</div>
 			<a class="btn primary" href="/cards/new">Neue Karte</a>
 		</div>
