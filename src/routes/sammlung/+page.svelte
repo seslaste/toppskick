@@ -3,6 +3,7 @@
 	import CardList from '$lib/components/CardList.svelte';
 
 	let { data } = $props();
+	let query = $state('');
 
 	let showCreated = $state(data.created);
 	let showUpdated = $state(data.updated);
@@ -19,6 +20,24 @@
 			return () => clearTimeout(timer);
 		}
 	});
+
+	const filteredCards = $derived(
+		query.trim()
+			? data.cards.filter((card) => {
+					const haystack = [
+						card.player,
+						card.team,
+						card.position,
+						card.nationality,
+						card.rarity
+					]
+						.filter(Boolean)
+						.join(' ')
+						.toLowerCase();
+					return haystack.includes(query.trim().toLowerCase());
+			  })
+			: data.cards
+	);
 </script>
 
 {#if showCreated}
@@ -31,4 +50,16 @@
 	<div class="notice danger notice-center">Karte wurde gelöscht.</div>
 {/if}
 
-<CardList cards={data.cards} showActions={false} />
+<div class="search-bar">
+	<input
+		type="search"
+		placeholder="Suche nach Spieler, Team, Position, Nationalität, Rarity"
+		bind:value={query}
+	/>
+</div>
+
+<CardList
+	cards={filteredCards}
+	showActions={false}
+	emptyText={query.trim() ? 'Keine Treffer gefunden.' : 'Noch keine Karten in der Sammlung.'}
+/>

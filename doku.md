@@ -1,4 +1,23 @@
-﻿## 1. Einordnung & Zielsetzung
+﻿# Projektdokumentation – [Projekttitel]
+
+## Inhaltsverzeichnis
+
+1. [Einordnung & Zielsetzung](#1-einordnung--zielsetzung)
+2. [Zielgruppe & Stakeholder](#2-zielgruppe--stakeholder)
+3. [Anforderungen & Umfang](#3-anforderungen--umfang)
+4. [Vorgehen & Artefakte](#4-vorgehen--artefakte)
+    - [Understand & Define](#41-understand--define)
+    - [Sketch](#42-sketch)
+    - [Decide](#43-decide)
+    - [Prototype](#44-prototype)
+    - [Validate](#45-validate)
+5. [Erweiterungen [Optional]](#5-erweiterungen-optional)
+6. [Projektorganisation [Optional]](#6-projektorganisation-optional)
+7. [KI‑Deklaration](#7-ki‑deklaration)
+8. [Anhang [Optional]](#8-anhang-optional)
+
+
+## 1. Einordnung & Zielsetzung
 Kurz beschreiben, welches Problem adressiert wird und welches Ergebnis angestrebt ist.
 - **Kontext & Problem:** Viele Sammler von Topps Premier League Karten haben ihre physischen Karten Über Ordner und Boxen verteilt und verlieren dadurch schnell den Überblick. Doppelungen, seltene Karten sowie wichtige Infos zu Spielern, Teams und Seltenheit sind nicht zentral erfasst. Dadurch fehlt eine klare Struktur bei der Verwaltung der Sammlung.
 - **Ziele:**
