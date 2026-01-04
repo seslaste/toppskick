@@ -503,6 +503,17 @@ a {
 	width: 100%;
 }
 
+.collection-controls {
+	display: grid;
+	grid-template-columns: 1fr 220px;
+	gap: 12px;
+	margin-bottom: 16px;
+}
+
+.sort-bar select {
+	width: 100%;
+}
+
 .notice-center {
 	position: fixed;
 	left: 50%;
