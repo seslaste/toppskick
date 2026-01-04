@@ -230,13 +230,13 @@ ChatGPT (OpenAI, Codex‑CLI / GPT‑5)
 KI (ChatGPT/Codex) wurde zur Unterstützung bei Konzeption, Layout‑Iterationen, Formulierungen und Codevorschlägen für SvelteKit‑Komponenten sowie für kleinere Refactorings eingesetzt. Tests wurden manuell im Browser geprüft; keine automatisierten Tests durch KI erzeugt. Ergebnisse wurden jeweils im Projektkontext überprüft und bei Bedarf angepasst. Externe Quellen oder fremde Code‑Snippets wurden nicht direkt übernommen; die Inhalte sind projektbezogen und generiert. Prompts waren iterativ (Anpassungen anhand von Screenshots und Feedback), um die UI schrittweise an das gewünschte Design anzunähern.
 
 ### Art der Beiträge
-- Teile der UI-Texte und Beschreibungen wurden mit KI formuliert und anschließend angepasst.
+- Teile der UI-Texte und Beschreibungen wurden mit KI formuliert und anschliessend angepasst.
 - Vorschläge für SvelteKit-Komponenten/Layouts (CardList, CardForm, Detail-Modal) wurden mit KI erarbeitet und manuell validiert.
 - Styling-Ideen (Farben, Abstände, Layout-Anpassungen) kamen teilweise aus KI-Vorschlägen und wurden iterativ verfeinert.
 - Datenlogik (Sortierung, Duplikat-Zählung, Validierungen) wurde mit KI-Unterstützung erstellt und geprüft.
 
 ### Eigene Leistung (Abgrenzung)
-Die Endauswahl der Funktionen, die Iterationen auf Basis der Mockups/Screenshots, das manuelle Testen im Browser sowie die finalen Anpassungen an UI‑Details und Texten wurden eigenständig durchgeführt. Entscheidungen zur Struktur (Routen, Workflow) und zur inhaltlichen Ausrichtung des Prototyps wurden vom Projektteam getroffen und anschließend umgesetzt bzw. angepasst. Der Code wurde eigenständig nachbearbeitet und die Komponentenstruktur (CardForm, CardList) angepasst/vereinheitlicht.
+Die Endauswahl der Funktionen, die Iterationen auf Basis der Mockups/Screenshots, das manuelle Testen im Browser sowie die finalen Anpassungen an UI‑Details und Texten wurden eigenständig durchgeführt. Entscheidungen zur Struktur (Routen, Workflow) und zur inhaltlichen Ausrichtung des Prototyps wurden vom Projektteam getroffen und anschliessend umgesetzt bzw. angepasst. Der Code wurde eigenständig nachbearbeitet und die Komponentenstruktur (CardForm, CardList) angepasst/vereinheitlicht.
 
 ### Reflexion
 - **Nutzen:** KI half, Ideen schnell zu variieren, Formulierungen zu verbessern und Code-Skizzen zügig zu erstellen. Dadurch konnte der Prototyp iterativ schneller an das gewünschte Design angepasst werden.

@@ -28,7 +28,6 @@
 		<nav class="nav-links">
 			<a class:active={$page.url.pathname === '/'} href="/">Home</a>
 			<a class:active={$page.url.pathname.startsWith('/sammlung')} href="/sammlung">Sammlung</a>
-			<a class:active={$page.url.pathname.startsWith('/statistiken')} href="/statistiken">Statistiken</a>
 		</nav>
 	</header>
 	<main class="page">

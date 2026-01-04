@@ -46,7 +46,12 @@
 	{:else}
 		<div class="card-grid">
 			{#each cards as card}
-				<article class="card card-click" role="button" tabindex="0" on:click={() => openDetails(card)}>
+				<article
+					class={`card card-click ${rarityClassMap[card.rarity] ? `${rarityClassMap[card.rarity]}-border` : ''}`}
+					role="button"
+					tabindex="0"
+					on:click={() => openDetails(card)}
+				>
 					<div class="card-media">
 						<img class="card-image" src="/images/player.png" alt="Kartenmotiv" />
 						<span class={`tag tag-topright ${rarityClassMap[card.rarity] || ''}`}>
