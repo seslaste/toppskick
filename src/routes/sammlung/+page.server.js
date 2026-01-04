@@ -16,11 +16,14 @@ function mapCard(doc) {
 	};
 }
 
-export async function load() {
+export async function load({ url }) {
 	const collection = await getCardsCollection();
 	const docs = await collection.find({}).sort({ createdAt: -1 }).toArray();
 	return {
-		cards: docs.map(mapCard)
+		cards: docs.map(mapCard),
+		created: url.searchParams.get('created') === '1',
+		deleted: url.searchParams.get('deleted') === '1',
+		updated: url.searchParams.get('updated') === '1'
 	};
 }
 

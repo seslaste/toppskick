@@ -55,7 +55,7 @@ export const actions = {
 			}
 		);
 
-		throw redirect(303, '/sammlung');
+		throw redirect(303, '/sammlung?updated=1');
 	},
 	delete: async ({ params }) => {
 		if (!ObjectId.isValid(params.id)) {
@@ -64,6 +64,6 @@ export const actions = {
 
 		const collection = await getCardsCollection();
 		await collection.deleteOne({ _id: new ObjectId(params.id) });
-		throw redirect(303, '/sammlung');
+		throw redirect(303, '/sammlung?deleted=1');
 	}
 };

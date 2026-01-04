@@ -47,6 +47,7 @@
 		<div class="card-grid">
 			{#each cards as card}
 				<article
+					id={`card-${card.id}`}
 					class={`card card-click ${rarityClassMap[card.rarity] ? `${rarityClassMap[card.rarity]}-border` : ''}`}
 					role="button"
 					tabindex="0"

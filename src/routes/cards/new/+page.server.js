@@ -49,7 +49,7 @@ export const actions = {
 		}
 
 		const collection = await getCardsCollection();
-		await collection.insertOne(payload);
-		throw redirect(303, '/');
+		const result = await collection.insertOne(payload);
+		throw redirect(303, `/sammlung?created=1#card-${result.insertedId}`);
 	}
 };
