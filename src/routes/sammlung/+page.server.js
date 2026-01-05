@@ -1,6 +1,7 @@
 import { fail } from '@sveltejs/kit';
 import { ObjectId } from 'mongodb';
 import { getCardsCollection } from '$lib/server/mongo';
+import { requireUser } from '$lib/server/auth';
 
 function mapCard(doc) {
 	return {
@@ -16,9 +17,10 @@ function mapCard(doc) {
 	};
 }
 
-export async function load({ url }) {
+export async function load({ url, locals }) {
+	const user = requireUser(locals);
 	const collection = await getCardsCollection();
-	const docs = await collection.find({}).sort({ createdAt: -1 }).toArray();
+	const docs = await collection.find({ userId: user }).sort({ createdAt: -1 }).toArray();
 	return {
 		cards: docs.map(mapCard),
 		created: url.searchParams.get('created') === '1',
@@ -28,7 +30,8 @@ export async function load({ url }) {
 }
 
 export const actions = {
-	delete: async ({ request }) => {
+	delete: async ({ request, locals }) => {
+		const user = requireUser(locals);
 		const data = await request.formData();
 		const id = data.get('id');
 
@@ -40,7 +43,7 @@ export const actions = {
 		}
 
 		const collection = await getCardsCollection();
-		await collection.deleteOne({ _id: new ObjectId(id) });
+		await collection.deleteOne({ _id: new ObjectId(id), userId: user });
 		return { success: true };
 	}
 };

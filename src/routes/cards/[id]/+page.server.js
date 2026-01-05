@@ -1,6 +1,7 @@
 import { error, fail, redirect } from '@sveltejs/kit';
 import { ObjectId } from 'mongodb';
 import { getCardsCollection } from '$lib/server/mongo';
+import { requireUser } from '$lib/server/auth';
 
 function mapCard(doc) {
 	return {
@@ -15,13 +16,14 @@ function mapCard(doc) {
 	};
 }
 
-export async function load({ params }) {
+export async function load({ params, locals }) {
+	const user = requireUser(locals);
 	if (!ObjectId.isValid(params.id)) {
 		throw error(404, 'Card not found');
 	}
 
 	const collection = await getCardsCollection();
-	const card = await collection.findOne({ _id: new ObjectId(params.id) });
+	const card = await collection.findOne({ _id: new ObjectId(params.id), userId: user });
 
 	if (!card) {
 		throw error(404, 'Card not found');
@@ -31,7 +33,8 @@ export async function load({ params }) {
 }
 
 export const actions = {
-	save: async ({ request, params }) => {
+	save: async ({ request, params, locals }) => {
+		const user = requireUser(locals);
 		if (!ObjectId.isValid(params.id)) {
 			return fail(400, { error: 'Invalid card id.' });
 		}
@@ -40,7 +43,7 @@ export const actions = {
 
 		const collection = await getCardsCollection();
 		await collection.updateOne(
-			{ _id: new ObjectId(params.id) },
+			{ _id: new ObjectId(params.id), userId: user },
 			{
 				$set: {
 					player: String(data.get('player') || '').trim(),
@@ -57,13 +60,14 @@ export const actions = {
 
 		throw redirect(303, '/sammlung?updated=1');
 	},
-	delete: async ({ params }) => {
+	delete: async ({ params, locals }) => {
+		const user = requireUser(locals);
 		if (!ObjectId.isValid(params.id)) {
 			return fail(400, { error: 'Invalid card id.' });
 		}
 
 		const collection = await getCardsCollection();
-		await collection.deleteOne({ _id: new ObjectId(params.id) });
+		await collection.deleteOne({ _id: new ObjectId(params.id), userId: user });
 		throw redirect(303, '/sammlung?deleted=1');
 	}
 };

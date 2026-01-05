@@ -3,7 +3,7 @@
 	import '../app.css';
 	import { page } from '$app/stores';
 
-	let { children } = $props();
+	let { children, data } = $props();
 </script>
 
 <svelte:head>
@@ -28,6 +28,13 @@
 		<nav class="nav-links">
 			<a class:active={$page.url.pathname === '/'} href="/">Home</a>
 			<a class:active={$page.url.pathname.startsWith('/sammlung')} href="/sammlung">Sammlung</a>
+			{#if data.user}
+				<form method="post" action="/logout">
+					<button class="nav-button" type="submit">Logout ({data.user})</button>
+				</form>
+			{:else}
+				<a class:active={$page.url.pathname.startsWith('/login')} href="/login">Login</a>
+			{/if}
 		</nav>
 	</header>
 	<main class="page">

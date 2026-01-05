@@ -1,5 +1,6 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { getCardsCollection } from '$lib/server/mongo';
+import { requireUser } from '$lib/server/auth';
 
 function buildPayload(data) {
 	const player = String(data.get('player') || '').trim();
@@ -40,7 +41,8 @@ function buildPayload(data) {
 }
 
 export const actions = {
-	default: async ({ request }) => {
+	default: async ({ request, locals }) => {
+		const user = requireUser(locals);
 		const data = await request.formData();
 		const { payload, error } = buildPayload(data);
 
@@ -49,7 +51,7 @@ export const actions = {
 		}
 
 		const collection = await getCardsCollection();
-		const result = await collection.insertOne(payload);
+		const result = await collection.insertOne({ ...payload, userId: user });
 		throw redirect(303, `/sammlung?created=1#card-${result.insertedId}`);
 	}
 };

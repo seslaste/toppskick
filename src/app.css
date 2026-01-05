@@ -93,6 +93,26 @@ a {
 	border: 1px solid rgba(120, 90, 190, 0.45);
 }
 
+.nav-links form {
+	margin: 0;
+}
+
+.nav-button {
+	padding: 8px 14px;
+	border-radius: 999px;
+	color: var(--muted);
+	background: transparent;
+	border: 1px solid transparent;
+	font: inherit;
+	cursor: pointer;
+	transition: 0.2s ease;
+}
+
+.nav-button:hover {
+	background: rgba(120, 80, 220, 0.5);
+	color: #ffffff;
+}
+
 .nav-links a {
 	padding: 8px 14px;
 	border-radius: 999px;
@@ -807,6 +827,10 @@ select {
 	justify-content: flex-end;
 	gap: 12px;
 	flex-wrap: wrap;
+}
+
+.login-form {
+	max-width: 360px;
 }
 
 @keyframes rise {
