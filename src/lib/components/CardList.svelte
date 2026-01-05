@@ -18,10 +18,18 @@
 
 	function openDetails(card) {
 		selectedCard = card;
+		if (typeof document !== 'undefined') {
+			document.documentElement.style.overflow = 'hidden';
+			document.body.style.overflow = 'hidden';
+		}
 	}
 
 	function closeDetails() {
 		selectedCard = null;
+		if (typeof document !== 'undefined') {
+			document.documentElement.style.overflow = '';
+			document.body.style.overflow = '';
+		}
 	}
 </script>
 

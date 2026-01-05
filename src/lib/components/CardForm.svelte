@@ -131,6 +131,7 @@
 				<option value="Ecuador">Ecuador</option>
 				<option value="El Salvador">El Salvador</option>
 				<option value="Elfenbeinküste">Elfenbeinküste</option>
+				<option value="England">England</option>
 				<option value="Eritrea">Eritrea</option>
 				<option value="Estland">Estland</option>
 				<option value="Eswatini">Eswatini</option>
@@ -313,7 +314,6 @@
 				<option value="Venezuela">Venezuela</option>
 				<option value="Vereinigte Arabische Emirate">Vereinigte Arabische Emirate</option>
 				<option value="Vereinigte Staaten">Vereinigte Staaten</option>
-				<option value="Vereinigtes Königreich">Vereinigtes Königreich</option>
 				<option value="Vietnam">Vietnam</option>
 				<option value="Wallis und Futuna">Wallis und Futuna</option>
 				<option value="Weihnachtsinsel">Weihnachtsinsel</option>
@@ -367,3 +367,4 @@
 		</div>
 	</div>
 {/if}
+

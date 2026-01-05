@@ -12,6 +12,9 @@
 
 	onMount(() => {
 		if (showCreated || showUpdated || showDeleted) {
+			if (showCreated || showDeleted) {
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			}
 			const timer = setTimeout(() => {
 				showCreated = false;
 				showUpdated = false;
