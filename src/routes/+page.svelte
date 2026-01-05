@@ -53,10 +53,7 @@
 		return acc;
 	}, {});
 
-	const duplicates = Object.values(duplicateCount).reduce(
-		(totalDupes, count) => totalDupes + Math.max(0, count - 1),
-		0
-	);
+	const duplicates = Object.values(duplicateCount).filter((count) => count > 1).length;
 
 	const rarityRank = {
 		'One of One (1/1)': 5,

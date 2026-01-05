@@ -3,7 +3,9 @@
 		cards,
 		showHeader = true,
 		showActions = true,
-		emptyText = 'Noch keine Karten. Starte mit deinem ersten Fund.'
+		emptyText = 'Noch keine Karten. Starte mit deinem ersten Fund.',
+		showDuplicateBadge = false,
+		duplicateKeys = new Set()
 	} = $props();
 
 	const rarityClassMap = {
@@ -70,6 +72,9 @@
 					<div class="card-top">
 						<h3>{card.player || 'Unbekannter Spieler'}</h3>
 					</div>
+					{#if showDuplicateBadge && duplicateKeys.has(card._dupKey)}
+						<span class="dup-badge">Duplikat</span>
+					{/if}
 					{#if showActions}
 						<div class="card-actions">
 							<a class="btn ghost" href={`/cards/${card.id}`} on:click|stopPropagation>Bearbeiten</a>

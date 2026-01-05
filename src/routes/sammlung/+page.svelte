@@ -5,6 +5,7 @@
 	let { data } = $props();
 	let query = $state('');
 	let sortKey = $state('newest');
+	let onlyDuplicates = $state(false);
 
 	let showCreated = $state(data.created);
 	let showUpdated = $state(data.updated);
@@ -25,7 +26,7 @@
 		}
 	});
 
-	const filteredCards = $derived(
+	const filteredCards = $derived.by(() =>
 		query.trim()
 			? data.cards.filter((card) => {
 					const haystack = [
@@ -43,29 +44,63 @@
 			: data.cards
 	);
 
-	const sortedCards = $derived(
-		(() => {
-			const cards = [...filteredCards];
-			switch (sortKey) {
-				case 'oldest':
-					return cards.sort((a, b) => (a.createdAt || '').localeCompare(b.createdAt || ''));
-				case 'player-asc':
-					return cards.sort((a, b) => (a.player || '').localeCompare(b.player || ''));
-				case 'rarity-desc': {
-					const rank = {
-						'One of One (1/1)': 5,
-						'Ultra Rare': 4,
-						'Very Rare': 3,
-						'Rare': 2,
-						'Common': 1
-					};
-					return cards.sort((a, b) => (rank[b.rarity] || 0) - (rank[a.rarity] || 0));
-				}
-				default:
-					return cards.sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
+	const duplicateInfo = $derived.by(() => {
+		const counts = new Map();
+		const keyFor = (card) =>
+			[
+				card.player || '',
+				card.team || '',
+				card.position || '',
+				card.nationality || '',
+				card.rarity || ''
+			].join('|');
+		for (const card of data.cards) {
+			const key = keyFor(card);
+			counts.set(key, (counts.get(key) || 0) + 1);
+		}
+		const dupKeys = new Set([...counts.entries()].filter(([, c]) => c > 1).map(([k]) => k));
+		return { keyFor, dupKeys };
+	});
+
+	const sortedCards = $derived.by(() => {
+		const cards = filteredCards.map((card) => ({
+			...card,
+			_dupKey: duplicateInfo.keyFor(card)
+		}));
+		const list = onlyDuplicates
+			? (() => {
+					const seen = new Set();
+					return cards.filter((card) => {
+						if (!duplicateInfo.dupKeys.has(card._dupKey)) {
+							return false;
+						}
+						if (seen.has(card._dupKey)) {
+							return false;
+						}
+						seen.add(card._dupKey);
+						return true;
+					});
+				})()
+			: cards;
+		switch (sortKey) {
+			case 'oldest':
+				return list.sort((a, b) => (a.createdAt || '').localeCompare(b.createdAt || ''));
+			case 'player-asc':
+				return list.sort((a, b) => (a.player || '').localeCompare(b.player || ''));
+			case 'rarity-desc': {
+				const rank = {
+					'One of One (1/1)': 5,
+					'Ultra Rare': 4,
+					'Very Rare': 3,
+					'Rare': 2,
+					'Common': 1
+				};
+				return list.sort((a, b) => (rank[b.rarity] || 0) - (rank[a.rarity] || 0));
 			}
-		})()
-	);
+			default:
+				return list.sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
+		}
+	});
 </script>
 
 {#if showCreated}
@@ -94,10 +129,22 @@
 			<option value="rarity-desc">Rarity (seltenste zuerst)</option>
 		</select>
 	</div>
+	<label class="toggle">
+		<input type="checkbox" bind:checked={onlyDuplicates} />
+		<span>Nur Duplikate</span>
+	</label>
 </div>
 
 <CardList
 	cards={sortedCards}
 	showActions={false}
-	emptyText={query.trim() ? 'Keine Treffer gefunden.' : 'Noch keine Karten in der Sammlung.'}
+	showDuplicateBadge={onlyDuplicates}
+	duplicateKeys={duplicateInfo.dupKeys}
+	emptyText={
+		onlyDuplicates
+			? 'Keine Duplikate gefunden.'
+			: query.trim()
+				? 'Keine Treffer gefunden.'
+				: 'Noch keine Karten in der Sammlung.'
+	}
 />

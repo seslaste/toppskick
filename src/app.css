@@ -525,13 +525,50 @@ a {
 
 .collection-controls {
 	display: grid;
-	grid-template-columns: 1fr 220px;
+	grid-template-columns: 1fr 220px auto;
 	gap: 12px;
 	margin-bottom: 16px;
 }
 
 .sort-bar select {
 	width: 100%;
+}
+
+.toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 600;
+}
+
+.toggle input {
+	width: 16px;
+	height: 16px;
+}
+
+.dup-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 6px 10px;
+	border-radius: 999px;
+	background: rgba(255, 77, 109, 0.2);
+	color: #ffd6df;
+	font-size: 0.75rem;
+	font-weight: 700;
+	width: fit-content;
+}
+
+@media (max-width: 900px) {
+	.collection-controls {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (max-width: 720px) {
+	.collection-controls {
+		grid-template-columns: 1fr;
+	}
 }
 
 .notice-center {
