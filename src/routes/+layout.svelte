@@ -1,5 +1,4 @@
 <script>
-	import favicon from '$lib/assets/favicon.svg';
 	import '../app.css';
 	import { page } from '$app/stores';
 
@@ -7,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href="/images/logo.png" />
 	<link
 		rel="stylesheet"
 		href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
@@ -18,7 +17,7 @@
 	<header class="topbar">
 		<div class="brand">
 			<div class="brand-mark">
-				<span>TK</span>
+				<img src="/images/logo.png" alt="Topps Kick Logo" />
 			</div>
 			<div>
 				<p class="brand-title">TOPPS Premier League</p>
