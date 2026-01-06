@@ -234,30 +234,27 @@ Fasst die technische Realisierung zusammen.
 - **Abgeleitete Verbesserungen:**
     
     **Hohe Priorität**
-    1. 404-Fehler nach dem Aktualisieren beheben
+    1. **404-Fehler nach dem Aktualisieren beheben:**
         Verhindert irreführende Fehlermeldungen trotz erfolgreicher Speicherung.
-    2. Löschbestätigung einführen
+    2. **Löschbestätigung einführen:**
         Eine Bestätigungsabfrage verhindert versehentliches Löschen und steigert die wahrgenommene Sicherheit.
-    3. Klares Systemfeedback nach Aktionen
+    3. **Klares Systemfeedback nach Aktionen:**
         Erfolgsmeldungen nach dem Erstellen und Bearbeiten erhöhen Sicherheit und Vertrauen.
 
-    ---
 
     **Mittlere Priorität**
-    1. Navigation klarer trennen (Home vs. Übersicht)
+    1. **Navigation klarer trennen (Home vs. Übersicht):**
         Eine eindeutige Seitenstruktur reduziert Verwirrung über den aktuellen Kontext.
-    2. Oberfläche beim Erstellen anpassen
+    2. **Oberfläche beim Erstellen anpassen:**
         Reduktion der Buttons sowie stärkere visuelle Hervorhebung der Seltenheit verbessern Übersicht und Verständlichkeit.
-    3. Suchfunktion in der Übersicht ergänzen
+    3. **Suchfunktion in der Übersicht ergänzen:**
         Erleichtert das Auffinden einzelner Karten, insbesondere bei größeren Sammlungen.
     
 
-    ---
-
     **Tiefe Priorität**
-    1. Positionsauswahl vereinfachen
+    1. **Positionsauswahl vereinfachen:**
         Die Umsetzung als Dropdown reduziert Eingabefehler und beschleunigt den Erstellungsprozess.
-    2. Sortier- und Filterfunktionen hinzufügen
+    2. **Sortier- und Filterfunktionen hinzufügen:**
         Unterstützt Nutzer dabei, ihre Sammlung gezielt zu strukturieren und schneller zu überblicken.
 - **Umgesetzte Anpassungen [Optional]:** _[Im Prototyp umgesetzte Verbesserungen aufgrund der Erkenntnisse in der Evaluation]_ Idealerweise: Zwischenstände separat deployen, Änderungen dokumentieren.
 
