@@ -221,7 +221,7 @@ Fasst die technische Realisierung zusammen.
 
 - **Kennzahlen & Beobachtungen:**
     - **Erfolgsquote:** Alle Testpersonen (2/2) konnten den Hauptworkflow Karte anlegen → wiederfinden → bearbeiten → löschen grundsätzlich erfolgreich durchführen.
-    - **Zeitbedarf:** Die Aufgaben wurden ohne längere Unterbrechungen erledigt; kleinere Verzögerungen entstanden durch Unsicherheiten bei Navigation und Button-Anordnung.
+    - **Zeitbedarf:** Die Aufgaben wurden ohne längere Unterbrechungen erledigt; kleinere Verzögerungen entstanden durch einen 404-Fehler nach dem Abschliessen des Bearbeitens sowie durch Unsicherheiten bei Navigation und Button-Anordnung.
     - **Feedback Grids**
         ![Feedback Grid 1](static/images/feedbackGrid1.png)
 
@@ -230,13 +230,14 @@ Fasst die technische Realisierung zusammen.
     - **Issue Map**
 
         ![Issue Map](static/images/issueMap.png)
-- **Zusammenfassung der Resultate:** Die Tests zeigen, dass der grundlegende Workflow (Karte anlegen, finden, bearbeiten und löschen) von allen Testpersonen erfolgreich verstanden und durchgeführt werden konnte. Besonders positiv wurde die einfache Grundidee und die funktionierende Erstellung von Karten bewertet. Gleichzeitig wurde deutlich, dass fehlendes Systemfeedback, zu viele Buttons und eine unklare Trennung zwischen Home- und Übersichtsseite zu Unsicherheiten führen. Zudem wünschen sich Nutzende bei grösseren Sammlungen Such-, Sortier- und Filterfunktionen.
+- **Zusammenfassung der Resultate:** Die Tests zeigen, dass der grundlegende Workflow (Karte anlegen, finden, bearbeiten und löschen) von allen Testpersonen erfolgreich verstanden und durchgeführt werden konnte. Besonders positiv wurde die einfache Grundidee sowie die funktionierende Erstellung und Bearbeitung von Karten bewertet, auch wenn nach dem Speichern ein 404-Fehler angezeigt wurde, die Änderungen jedoch korrekt übernommen wurden. Gleichzeitig wurde deutlich, dass fehlendes Systemfeedback, zu viele Buttons und eine unklare Trennung zwischen Home- und Übersichtsseite zu Unsicherheiten führen. Zudem wünschen sich Nutzende bei grösseren Sammlungen Such-, Sortier- und Filterfunktionen.
 - **Abgeleitete Verbesserungen:**
-    1. **Oberfläche beim Erstellen anpassen:** Reduktion der Buttons und stärkere Hervorhebung der Seltenheit verbessern Übersicht und Verständlichkeit.
-    2. **Navigation klarer trennen (Home vs. Übersicht):** Eine eindeutige Seitenstruktur reduziert Verwirrung über den aktuellen Kontext.
-    3. **Löschbestätigung einführen:** Eine Bestätigungsabfrage verhindert versehentliches Löschen und steigert die wahrgenommene Sicherheit.
-    4. **Klares Systemfeedback nach Aktionen:** Erfolgsmeldungen nach Erstellen und Bearbeiten sowie verständliche Fehlermeldungen erhöhen Sicherheit und Vertrauen.
-    5. **Such-, Sortier- und Filterfunktionen ergänzen:** Erleichtert das Wiederfinden von Karten, besonders bei grösseren Sammlungen.
+    1. **404-Fehler beheben:** Korrekte Weiterleitung oder Erfolgsmeldung nach dem Speichern verhindert Verunsicherung, auch wenn die Änderungen technisch korrekt übernommen werden.
+    2. **Oberfläche beim Erstellen anpassen:** Reduktion der Buttons und stärkere Hervorhebung der Seltenheit verbessern Übersicht und Verständlichkeit.
+    3. **Navigation klarer trennen (Home vs. Übersicht):** Eine eindeutige Seitenstruktur reduziert Verwirrung über den aktuellen Kontext.
+    4. **Löschbestätigung einführen:** Eine Bestätigungsabfrage verhindert versehentliches Löschen und steigert die wahrgenommene Sicherheit.
+    5. **Klares Systemfeedback nach Aktionen:** Erfolgsmeldungen nach Erstellen und Bearbeiten sowie verständliche Fehlermeldungen erhöhen Sicherheit und Vertrauen.
+    6. **Such-, Sortier- und Filterfunktionen ergänzen:** Erleichtert das Wiederfinden von Karten, besonders bei grösseren Sammlungen.
 - **Umgesetzte Anpassungen [Optional]:** _[Im Prototyp umgesetzte Verbesserungen aufgrund der Erkenntnisse in der Evaluation]_ Idealerweise: Zwischenstände separat deployen, Änderungen dokumentieren.
 
 ## 5. Erweiterungen [Optional]
