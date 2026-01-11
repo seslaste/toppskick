@@ -167,20 +167,20 @@ Bearbeitungsformular für eine Karte mit Dropdowns (Team, Position, Nationalitä
 - **Designentscheidungen:**
     - **Reduzierte Navigation:** Klare Top-Navigation mit wenigen Einstiegspunkten, um Orientierung und Einfachheit zu gewährleisten.
     - **Karten im Fokus:** Grid-Darstellung, bei der die Karten visuell im Vordergrund stehen, da sie das zentrale Objekt der App sind.
-    - **Details auf Abruf:** In der Übersicht werden nur die wichtigsten Informationen angezeigt; weitere Details erscheinen erst nach Klick, um Überladung zu vermeiden.
-    - **Klare Handlungsaufforderungen:** Ein gut sichtbarer "Karte hinzufügen"-Button unterstützt den wichtigsten Workflow.
-    - **Farbkodierung der Seltenheit:** Unterschiedliche Farben für Common, Rare, Epic und Legendary ermöglichen schnelles Erkennen auf einen Blick.
+    - **Details auf Abruf:** In der Übersicht werden nur die wichtigsten Informationen angezeigt; weitere Details erscheinen als Modal nach Klick, um Überladung zu vermeiden.
+    - **Klare Handlungsaufforderungen:** Ein gut sichtbarer "Neue Karte"-Button unterstützt den wichtigsten Workflow.
+    - **Farbkodierung der Seltenheit:** Farben für Common, Rare, Very Rare, Ultra Rare und One of One ermöglichen schnelles Erkennen auf einen Blick.
 
 #### 4.4.2. Umsetzung (Technik)
 Fasst die technische Realisierung zusammen.
 - **Technologie‑Stack:** SvelteKit (Svelte 5) mit Vite, MongoDB‑Persistenz via mongodb, Deployment via Netlify‑Adapter
 - **Tooling:** VS Code, Node.js + npm, Vite Dev Server, GitHub, MongoDB Atlas, Netlify  
 - **Struktur & Komponenten:** 
-    - **Routen:** /, /sammlung, /cards/new, /cards/[id]
-     - **State/Stores:** lokal in Svelte 5 ($state), keine Stores. 
+    - **Routen:** /, /sammlung, /cards/new, /cards/[id], /login, /register
+     - **State/Stores:** lokal in Svelte 5 ($state, $derived), keine Stores 
     - **Wichtige Komponenten:** CardForm.svelte, CardList.svelte
 - **Daten & Schnittstellen [Optional]:** _[Datenquellen, API‑Entwürfe, Modelle]_
-- **Besondere Entscheidungen:** Fokus auf Kernworkflow (Karten erfassen/bearbeiten/löschen); Detailansicht als Modal statt eigener Route; Bilder als Platzhalter statt Upload
+- **Besondere Entscheidungen:** Fokus auf Kernworkflow (Karten erfassen/bearbeiten/löschen); Detailansicht als Modal; Bilder als Platzhalter statt Upload; Suche/Sortierung/Duplikate clientseitig umgesetzt; lokale Demo‑Auth ohne externen Provider
 
 ### 4.5 Validate
 - **URL der getesteten Version**: https://toppskick.netlify.app
