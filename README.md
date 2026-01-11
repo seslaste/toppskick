@@ -324,7 +324,8 @@ KI (ChatGPT/Codex) wurde zur Unterstützung bei Konzeption, Layout‑Iterationen
 - Teile der UI-Texte und Beschreibungen wurden mit KI formuliert und anschliessend angepasst.
 - Vorschläge für SvelteKit-Komponenten/Layouts (CardList, CardForm, Detail-Modal) wurden mit KI erarbeitet und manuell validiert.
 - Styling-Ideen (Farben, Abstände, Layout-Anpassungen) kamen teilweise aus KI-Vorschlägen und wurden iterativ verfeinert.
-- Datenlogik (Sortierung, Duplikat-Zählung, Validierungen) wurde mit KI-Unterstützung erstellt und geprüft.
+- Datenlogik (Sortierung, Duplikat‑Zählung, Suche/Filter, Validierungen) wurde mit KI‑Unterstützung erstellt und geprüft.
+- Login/Registrierung (Demo‑Auth) wurden mit KI‑Unterstützung implementiert und manuell getestet.
 
 ### Eigene Leistung (Abgrenzung)
 Die Endauswahl der Funktionen, die Iterationen auf Basis der Mockups/Screenshots, das manuelle Testen im Browser sowie die finalen Anpassungen an UI‑Details und Texten wurden eigenständig durchgeführt. Entscheidungen zur Struktur (Routen, Workflow) und zur inhaltlichen Ausrichtung des Prototyps wurden getroffen und anschliessend umgesetzt bzw. angepasst. Der Code wurde eigenständig nachbearbeitet und die Komponentenstruktur (CardForm, CardList) angepasst.
