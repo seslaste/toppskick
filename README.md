@@ -137,32 +137,32 @@ Bearbeitungsformular zur Anpassung der Karteninformationen (Name, Verein, Positi
 
 ### 4.4 Prototype
 - **Kernfunktionalität:** Übersichtliche Darstellung der gesamten Kartensammlung, Hinzufügen neuer Karten über ein Formular sowie Anzeigen, Bearbeiten und Löschen einzelner Karten über klar strukturierte Detail- und Bearbeitungsansichten.
-- **Deployment:** https://direct-magic-18149687.figma.site/
+- **Deployment:** https://toppsdb.netlify.app/login
 
 #### 4.4.1. Entwurf (Design)
 Beschreibt die Gestaltung und Interaktion.
 > **Hinweis:** Hier wird der **Prototyp** beschrieben, nicht das **Mockup**.
-- **Informationsarchitektur:** Die App ist flach und übersichtlich aufgebaut. Zentrale Einstiegsebene ist die Übersichtsseite (Sammlung), auf der alle Karten angezeigt werden. Über eine einfache Top-Navigation sind Startseite (Dashboard) und Sammlung erreichbar. Von der Sammlungsübersicht führen Klicks auf einzelne Karten zu einer Detailansicht, von dort weiter zu Bearbeiten oder Löschen. Das Hinzufügen neuer Karten erfolgt jederzeit über einen klar sichtbaren "+"-Button.
+- **Informationsarchitektur:** Die App ist flach und übersichtlich aufgebaut. Zentrale Einstiegsebene ist die Startseite (Homepage) mit Fortschritts‑Übersicht und "besten Karten". Über die Top‑Navigation sind Startseite und Sammlung erreichbar; Login/Logout regelt die nutzerspezifische Sammlung. Die Sammlung zeigt alle Karten im Grid, inklusive Suche, Sortierung und Duplikat‑Filter. Ein Klick öffnet die Detailansicht als Modal, von dort gelangt man zur Bearbeitung; Löschen erfolgt in der Bearbeiten‑Ansicht. Neue Karten werden über "Neue Karte" hinzugefügt.
 - **Oberflächenentwürfe:** 
-![Homepage](static/images/homepage.png)
+![Homepage](static/images/homepage_pt.png)
 
-Übersicht mit Sammelfortschritt, hervorgehobenen "besten Karten" und einem zentral platzierten Button zum Hinzufügen neuer Karten.
+Startseite mit Top‑Navigation, Fortschritts‑Panel (Gesamtfortschritt und Rarity‑Balken), darunter der Button "Neue Karte" sowie ein Grid mit den 4 besten Karten.
 
-![Add Card](static/images/addCard.png)
+![Add Card](static/images/addCard_pt.png)
 
-Formular zum Hinzufügen einer neuen Sammelkarte mit Pflichtfeldern für Spielername, Klub, Nationalität, Position und Seltenheit
+Formular zum Erstellen einer neuen Karte mit Pflichtfeldern (Spieler, Team, Position, Nationalität, Rarity), Notizenfeld sowie Speichern/Abbrechen Buttons.
 
-![Collection](static/images/collection.png)
+![Collection](static/images/collection_pt.png)
 
-Grid-Ansicht aller Karten der Sammlung mit Bild, Name, Verein und farblicher Kennzeichnung der Seltenheit
+Sammlungsansicht als Grid mit Kartenbildern und farbiger Rarity‑Kennzeichnung; Suche, Sortierung und Duplikat‑Filter über der Liste.
 
-![Player Details](static/images/playerDetails.png)
+![Player Details](static/images/playerDetails_pt.png)
 
-Detailansicht einer einzelnen Karte mit grossem Bild sowie Informationen zu Verein, Position und Nationalität, inklusive Aktionen zum Bearbeiten oder Löschen.
+Detailansicht einer Karte als Modal mit grossem Bild, Rarity‑Badge, Spielername und Infos zu Team, Position und Nationalität; Bearbeiten‑Button unten.
 
-![Player Edit](static/images/playerEdit.png)
+![Player Edit](static/images/playerEdit_pt.png)
 
-Bearbeitungsformular zur Anpassung der Karteninformationen (Name, Verein, Position, Nationalität, Seltenheit) mit Speichern- und Abbrechen-Option.
+Bearbeitungsformular für eine Karte mit Dropdowns (Team, Position, Nationalität, Rarity), Notizenfeld sowie Speichern/Cancel Buttons; Löschen als eigener Button mit Bestätigung.
 
 - **Designentscheidungen:**
     - **Reduzierte Navigation:** Klare Top-Navigation mit wenigen Einstiegspunkten, um Orientierung und Einfachheit zu gewährleisten.
@@ -248,7 +248,7 @@ Fasst die technische Realisierung zusammen.
     2. **Oberfläche beim Erstellen anpassen:**
         Reduktion der Buttons sowie stärkere visuelle Hervorhebung der Seltenheit verbessern Übersicht und Verständlichkeit.
     3. **Suchfunktion in der Übersicht ergänzen:**
-        Erleichtert das Auffinden einzelner Karten, insbesondere bei größeren Sammlungen.
+        Erleichtert das Auffinden einzelner Karten, insbesondere bei grösseren Sammlungen.
     
 
     **Tiefe Priorität**
